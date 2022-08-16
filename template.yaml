@@ -67,12 +67,18 @@ spec:
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ['github.com']
+        allowedHosts: ['github.cod']
         description: 'This is ${{ parameters.component_id }}'
         repoUrl: ${{ parameters.repoUrl }}
         defaultBranch: main
         requireCodeOwnerReviews: true
         deleteBranchOnMerge: true
+
+    - id: register-to-catalog
+      name: register to the catalog
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
 
 
   output:
