@@ -29,6 +29,14 @@ spec:
           type: string
           description: service, library, etc.
           enum: ["service", "library", "website", "other"]
+        owner:
+          title: Owner
+          type: string
+          description: Owner of the component
+          ui:field: OwnerPicker
+          ui:options:
+            allowedKinds: 
+              - Group
     - title: Choose a location
       required:
         - repoUrl
